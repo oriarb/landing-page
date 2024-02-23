@@ -1,7 +1,13 @@
 import styles from './rainingImages.module.css';
+import React from 'react';
 
+interface RainingImagesProps {
+  imageUrl: string;
+  delay: number;
+  style: React.CSSProperties;
+}
 
-export default function RainingImages({ imageUrl, delay, style }) {
+const RainingImages: React.FC<RainingImagesProps> = ({ imageUrl, delay, style }) => {
 
   return (
     <div
@@ -14,3 +20,5 @@ export default function RainingImages({ imageUrl, delay, style }) {
     />
   );
 }
+
+export default RainingImages;
