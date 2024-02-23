@@ -1,15 +1,69 @@
+"use client"; 
+
+import RainingImages from "@/components/RainingImages/rainingImages";
 import Hero from "@/components/hero";
+import React, { useState, useEffect } from 'react';
+
 
 export default function Home() {
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [images, setImages] = useState<{ imageUrl: string; delay: number; style: React.CSSProperties }[]>([]);
+
+  useEffect(() => {
+    const updateWindowSize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener('resize', updateWindowSize);
+    updateWindowSize();
+
+    return () => {
+      window.removeEventListener('resize', updateWindowSize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const numberOfImages = 100; // Change this number as desired
+    const newImages = [];
+
+    for (let i = 0; i < numberOfImages; i++) {
+      const randomX = Math.floor(Math.random() * windowSize.width);
+      const randomY = Math.floor(Math.random() * windowSize.height);
+      const randomDelay = Math.random() * 10; // Adjust delay range as needed
+
+      newImages.push({
+        imageUrl: '/amitahlaota.png', // Replace with your image URL
+        delay: randomDelay,
+        style: { left: randomX, top: randomY }
+      });
+    }
+
+    setImages(newImages);
+  }, [windowSize]);
+
+  return (
+    <div>
+      <img src="/ambush-new.png" style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}></img>
+      {images.map((image, index) => (
+        <RainingImages key={index} {...image} />
+      ))}
+    </div>
+  );
   return (
     <>
+
     {/* 
         Hero: This is the first section that the user sees when they visit your landing page.
         It usually contains a catchy headline, a subheading, and a call to action button.
         The goal of this section is to capture the user’s attention and interest, and to persuade them to take the next step.
 
     */}
-    <Hero /> 
+    {/* <Hero />  */}
 
     
     {/* 

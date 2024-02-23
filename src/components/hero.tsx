@@ -1,8 +1,9 @@
 "use client"; 
 
-import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const navigation = [
   { name: 'Product', href: '#' },

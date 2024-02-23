@@ -1,0 +1,24 @@
+.rain {
+    position: absolute;
+    width: 50px; /* Adjust size of your raindrop image */
+    height: 80px; /* Adjust size of your raindrop image */
+    animation: falling linear infinite, circular 5s infinite;
+  }
+  
+  @keyframes falling {
+    from {
+      transform: translateY(-50px); /* Start from above the screen */
+    }
+    to {
+      transform: translateY(calc(100vh + 50px)); /* Move below the screen */
+    }
+  }
+  
+  @keyframes circular {
+    0% {
+      transform: translateY(0) rotate(0deg); /* Start position */
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg); /* End position */
+    }
+  }
