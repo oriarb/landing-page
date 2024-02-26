@@ -1,7 +1,7 @@
 .rain {
     position: absolute;
-    width: 50px; /* Adjust size of your raindrop image */
-    height: 80px; /* Adjust size of your raindrop image */
+    width: 60px; /* Adjust size of your raindrop image */
+    height: 100px; /* Adjust size of your raindrop image */
     animation: falling linear infinite, circular 5s infinite;
   }
   
