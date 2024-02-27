@@ -32,7 +32,7 @@ export default function Home() {
       const randomDelay = Math.random() * 10; // Adjust delay range as needed
 
       newImages.push({
-        imageUrl: '/yahav.jpg', // Replace with your image URL
+        imageUrl: '/barachbar.jpg', // Replace with your image URL
         delay: randomDelay,
         style: { left: randomX, top: randomY }
       });
